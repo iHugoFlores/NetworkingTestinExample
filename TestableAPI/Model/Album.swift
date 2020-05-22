@@ -15,7 +15,7 @@ struct Album: Codable {
 
     static func getAlbums(networkManager: NetworkManager, _ completion: @escaping (Result<[Self], NetworkError>) -> Void) {
         let endpoint = "https://jsonplaceholder.typicode.com/albums/1/photos"
-        guard let url = URL(string: endpoint) else { print("Invalid endpoint"); return }
+        guard let url = URL(string: endpoint) else { return }
         networkManager.getData(url: url) { (result: Result<[Self], NetworkError>) in
             completion(result)
         }

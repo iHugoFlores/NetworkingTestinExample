@@ -35,7 +35,6 @@ class NetworkManager {
                 completion(Result.failure(.emptyResult))
                 return
             }
-            print(data)
             do {
                 let result = try JSONDecoder().decode(T.self, from: data)
                 completion(Result.success(result))
